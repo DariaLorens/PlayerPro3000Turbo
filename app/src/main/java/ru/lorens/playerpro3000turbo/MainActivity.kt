@@ -1,7 +1,8 @@
 package ru.lorens.playerpro3000turbo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -9,6 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        print("test git")
+        val myAdapter = MainRecyclerAdapter(listOf("1", "2"))
+        mainRecycler.adapter = myAdapter
     }
 }

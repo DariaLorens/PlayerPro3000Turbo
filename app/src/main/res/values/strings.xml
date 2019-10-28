@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PlayerPro3000Turbo</string>
+    <string name="search_in_your_library">Search in your library</string>
+    <string name="playlists">Playlists</string>
 </resources>
