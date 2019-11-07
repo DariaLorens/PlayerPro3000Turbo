@@ -1,9 +1,10 @@
-package ru.lorens.playerpro3000turbo
+package ru.lorens.playerpro3000turbo.adapters
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import ru.lorens.playerpro3000turbo.R
 
 class MainRecyclerAdapter(var items: List<String>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {

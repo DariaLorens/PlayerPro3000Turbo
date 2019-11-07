@@ -3,6 +3,7 @@ package ru.lorens.playerpro3000turbo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import ru.lorens.playerpro3000turbo.adapters.MainRecyclerAdapter
 
 class MainActivity : AppCompatActivity() {
 
