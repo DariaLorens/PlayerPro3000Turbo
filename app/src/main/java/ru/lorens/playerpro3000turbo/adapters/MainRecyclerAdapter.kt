@@ -3,10 +3,16 @@ package ru.lorens.playerpro3000turbo.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import ru.lorens.playerpro3000turbo.R
+import ru.lorens.playerpro3000turbo.model.Songs
 
-class MainRecyclerAdapter(var items: List<String>) :
+class MainRecyclerAdapter(var items: List<Songs>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = when (viewType) {
@@ -41,8 +47,15 @@ class MainRecyclerAdapter(var items: List<String>) :
         playlistsHolder.recyclerPlaylists.adapter
     }
 
-    private fun onBindSong(holder: RecyclerView.ViewHolder, item: String) {
-//        (holder as SongsHolder).messageView.text = row.message
+    private fun onBindSong(holder: RecyclerView.ViewHolder, item: Songs) {
+        val songssHolder = holder as SongsHolder
+        songssHolder.textSongName.text = item.name
+        songssHolder.textSongDesc.text = item.artist.name
+
+        Glide.with(songssHolder.songImage.context)
+            .load(item.image)
+            .transform(CenterCrop(), RoundedCorners(10))
+            .into(songssHolder.songImage)
     }
 
     inner class PlaylistsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -50,7 +63,10 @@ class MainRecyclerAdapter(var items: List<String>) :
     }
 
     inner class SongsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
+        val songImage = itemView.findViewById<ImageView>(R.id.songImage)
+        val textSongName = itemView.findViewById<TextView>(R.id.textSongName)
+        val textSongDesc = itemView.findViewById<TextView>(R.id.textSongDesc)
+        val imageDrag = itemView.findViewById<ImageView>(R.id.imageDrag)
     }
 
     companion object {
